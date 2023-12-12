@@ -6,6 +6,7 @@ import path from 'path';
 import type { RuleSetRule } from 'webpack';
 import semver from 'semver';
 import { NextjsSWCNotSupportedError } from '@storybook/core-events/server-errors';
+import loadJsConfig from 'next/dist/build/load-jsconfig';
 import { getNextjsVersion } from '../utils';
 
 const applyFastRefresh = async (options: Options) => {
@@ -31,6 +32,8 @@ export const configureSWCLoader = async (
 
   const { virtualModules } = await getVirtualModules(options);
 
+  const { jsConfig } = await loadJsConfig(dir, nextConfig as any);
+
   baseConfig.module.rules = [
     // TODO: Remove filtering in Storybook 8.0
     ...baseConfig.module.rules.filter((r: RuleSetRule) => {
@@ -51,6 +54,7 @@ export const configureSWCLoader = async (
           pagesDir: `${dir}/pages`,
           appDir: `${dir}/apps`,
           hasReactRefresh: await applyFastRefresh(options),
+          jsConfig,
           nextConfig,
           supportedBrowsers: require('next/dist/build/utils').getSupportedBrowsers(
             dir,
