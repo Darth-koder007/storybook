@@ -1,3 +1,9 @@
+## 8.0.0-alpha.4
+
+- Angular: Add random attribute to bootstrapped selector - [#24972](https://github.com/storybookjs/storybook/pull/24972), thanks [@Marklb](https://github.com/Marklb)!
+- Angular: Reduce the warnings from `ts-loader` via stricter list of `includes` - [#24531](https://github.com/storybookjs/storybook/pull/24531), thanks [@ndelangen](https://github.com/ndelangen)!
+- Blocks: Render colors in the same order as provided - [#25001](https://github.com/storybookjs/storybook/pull/25001), thanks [@kaelig](https://github.com/kaelig)!
+
 ## 8.0.0-alpha.3
 
 - Addon-docs: Fix storybook MDX check - [#24696](https://github.com/storybookjs/storybook/pull/24696), thanks [@shilman](https://github.com/shilman)!
